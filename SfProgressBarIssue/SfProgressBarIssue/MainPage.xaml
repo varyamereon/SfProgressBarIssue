@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="SfProgressBarIssue.MainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:sfProgress="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
+             xmlns:local="clr-namespace:SfProgressBarIssue"
+             ios:Page.UseSafeArea="True"
+             x:DataType="local:MainPageViewModel">
+    
+    <ContentPage.BindingContext>
+
+        <local:MainPageViewModel/>
+
+    </ContentPage.BindingContext>
+
+    <StackLayout Spacing="20"
+                 VerticalOptions="Center">
+        
+        <sfProgress:SfLinearProgressBar Margin="20"
+                                    AnimationDuration="300"
+                                    CornerRadius="4"
+                                    IsVisible="True"
+                                    Maximum="3"
+                                    Progress="{Binding Progress}"
+                                    SegmentCount="3">
+
+            <sfProgress:SfLinearProgressBar.RangeColors>
+
+                <sfProgress:RangeColorCollection>
+
+                    <sfProgress:RangeColor End="33"
+                                       Start="0"
+                                       Color="LightCoral" />
+
+                    <sfProgress:RangeColor End="66"
+                                       Start="34"
+                                       Color="Yellow" />
+
+                    <sfProgress:RangeColor End="100"
+                                       Start="67"
+                                       Color="LightGreen" />
+
+                </sfProgress:RangeColorCollection>
+
+            </sfProgress:SfLinearProgressBar.RangeColors>
+
+        </sfProgress:SfLinearProgressBar>
+
+        <Button Text="Increase Progress"
+                HorizontalOptions="Center"
+                Command="{Binding IncreaseProgressCommand}"/>
+
+    </StackLayout>
+
+</ContentPage>
